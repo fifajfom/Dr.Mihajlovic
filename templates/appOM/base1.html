@@ -1,0 +1,114 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block title %}
+<title>Ordinacija Mihajlović</title>
+{% endblock title %}
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<!-- css files -->
+    <link href="{% static 'website/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'website/css/style.css'%}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'website/css/font-awesome.min.css'%}" rel="stylesheet">
+	<!-- //css files -->
+    
+
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> 
+
+<!-- Font Awesome -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<!-- Moment.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+<!-- Tempus Dominus Bootstrap 4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" /> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script> 
+
+
+
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+	<!-- //google fonts -->
+	    <!-- Moment.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+		
+
+		{% load bootstrap4 %}
+		{% bootstrap_css %}
+		{% bootstrap_javascript jquery='full' %}
+		{{ form.media }}
+</head>
+<body onload="document.refresh();">
+	<button class="fa fa-angle-up  mb-3" onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+
+<!-- //header -->
+<header class="py-3">
+	<div class="container">
+			<div id="logo">
+				<h1> <a href="{% url 'index'%}"><span class="fa fa-stethoscope" aria-hidden="true"></span> Ordinacija Mihajlović</a></h1>
+			</div>
+		<!-- nav -->
+		<nav class="d-lg-flex">
+
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu mt-2 ml-auto">
+				<li class="active"><a href="{% url 'home'%}">Termini</a></li>
+				<li class=""><a href="{% url 'zakazivanje'%}">Zakazivanje</a></li>
+				<!-- <li class=""><a href="#onama">O nama</a></li>
+				<li class=""><a href="#usluge">Usluge</a></li> -->
+				<li class=""><a href="{% url 'upload'%}">Dodavanje fajlova</a></li>	
+				<li class=""><a href="{% url 'addpacijent'%}">Pacijenti</a></li>
+			</ul>
+			<div class="login-icon ml-2">
+				<a class="user" href="{% url 'logout' %}" onclick="return confirm('Da li ste sigurni da želite da se izlogujete ?')"> Izloguj se</a>
+			</div>
+		</nav>
+		<div class="clear"></div>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
+<!-- Block content -->
+
+<div class="container">
+{% block content %}
+{% endblock content %}
+</div> 
+  
+
+ <!-- //Block content -->
+<!-- footer -->
+<footer  style="bottom: 0px; position:fixed; left:0px; width:100%;height:30px;" >
+
+
+<!-- //footer -->
+
+<!-- copyright -->
+
+
+		<div class=" text-center">
+			<p>© 2019 Ordinacija Mihajlović. All Rights Reserved | Design by <a href="">Miki</a> </p>
+		</div>
+
+
+<!-- //copyright -->
+	
+<script  src="{%static 'website/js/searchtable.js' %}"></script>
+<script  src="{%static 'website/js/backtotop.js' %}"></script>
+<!-- <script  src="{%static 'website/js/date.js' %}"></script> -->
+</footer>
+</body>
+
+</html>

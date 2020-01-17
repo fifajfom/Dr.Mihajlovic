@@ -1,0 +1,184 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Ordinacija Mihajlović-Kontakt</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Stomatoloska ordinacija Mihajlovic, Zubar , Sremsaka Mitrovica, Lacarak,
+Stomatolog, Popravka zuba, Proteze, Implanti, Ciscenje kamenca" />
+
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+	<!-- css files -->
+	<link href="{% static 'website/css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'website/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'website/css/style.css'%}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'website/css/font-awesome.min.css'%}" rel="stylesheet">
+	<!-- //css files -->
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+	<!-- //google fonts -->
+
+</head>
+<body>
+
+	<button class="fa fa-angle-up  mb-3" onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+<!-- top header -->
+<div class="header-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<ul class="d-lg-flex header-w3_pvt">
+					<li class="mr-lg-3">
+						<span class="fa fa-envelope-open"></span>
+						<a href="mailto:info@example.com" class="">sinisa@mihajlovic.com</a>
+					</li>
+					<li>
+						<span class="fa fa-phone"></span>
+						<p class="d-inline">Pozovite nas 060000000</p>
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-6 header-right-w3_pvt">
+				<ul class="d-lg-flex header-w3_pvt justify-content-lg-end">
+					<li class="mr-lg-3">
+						<span class=""><span class="fa fa-clock-o"></span>Pon - Pet : 8:30 do 20:00</span>
+					</li>
+					<li class="">
+						<span class=""><span class="fa fa-clock-o"></span>Sub - Ned : 9:00 do 18:00</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //top header -->
+
+<!-- //header -->
+<header class="py-3">
+	<div class="container">
+			<div id="logo">
+				<h1> <a href="{%url 'index'%}"><span class="fa fa-stethoscope" aria-hidden="true"></span> Ordinacija Mihajlović</a></h1>
+			</div>
+				<!-- nav -->
+				<nav class="d-lg-flex">
+
+					<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+					<input type="checkbox" id="drop" />
+					<ul class="menu mt-2 ml-auto">
+						<li class=""><a href="{%url 'index'%}">Početna</a></li>
+						<li class=""><a href="{% url 'index'%}#onama">O nama</a></li>
+						<li class=""><a href="{%url 'index'%}#usluge">Usluge</a></li>
+						<li class=""><a href="{% url 'gallery'%}">Galerija</a></li>
+						<!-- <li class=""><a href="#">Cenovnik</a></li> -->
+						<li class="active"><a href="{% url 'contact'%}">Kontakt</a></li>
+					</ul>
+					<div class="login-icon ml-2">
+						<a class="user" href="{% url 'login'%}"> Uloguj se</a>
+					</div>
+				</nav>
+				<div class="clear"></div>
+				<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
+<!-- banner -->
+<div class="innerpage-banner" id="home">
+	<div class="inner-page-layer">
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- contact -->
+<section class="mail pt-lg-5 pt-4">
+	<div class="container pt-lg-5">
+		<h2 class="heading text-center mb-sm-5 mb-4">Kontakt </h2>
+		<div class="row agileinfo_mail_grids">
+			<div class="col-lg-8 agileinfo_mail_grid_right">
+				<form action="#" method="post">
+					<div class="row">
+						<div class="col-md-6 wthree_contact_left_grid pr-md-0">
+							<div class="form-group">
+								<input type="text" name="name" class="form-control" placeholder="Ime" required="">
+							</div>
+							<div class="form-group">
+								<input type="email" name="email" class="form-control" placeholder="Email" required="">
+							</div>
+						</div>
+						<div class="col-md-6 wthree_contact_left_grid">
+							<div class="form-group">
+								<input type="text" name="phone number" class="form-control" placeholder="Telefonski broj" required="">
+							</div>
+							<div class="form-group">
+								<input type="text" name="subject" class="form-control" placeholder="Naslov" required="">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea name="message" placeholder="Poruka" class="form-control" required=""></textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="submit-buttons">
+								<button type="submit" class="btn">Pošalji</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-4 col-md-6 mt-lg-0 mt-4 contact-info">
+				<h4 class="mb-4">Adresa</h4>
+				<p><span class="fa mr-2 fa-map-marker"></span>Školska 41 22221 Laćarak</p>
+				<p class="phone py-2"><span class="fa mr-2 fa-phone"></span>Telefon : +38164/000-000 </p>
+				<p><span class="fa mr-2 fa-envelope"></span>Email : <a href="mailto:sinisa@mihajlovic.com">sinisa@mihajlovic.com</a></p>
+
+				<h4 class="my-4">Zakažite pregled</h4>
+				<p class="phone"><span class="fa mr-2 fa-phone"></span>+381 64/000-000  </p>
+			</div>
+		</div>
+	</div>
+	<div class="map mt-5">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2821.193452948415!2d19.566716815863394!3d45.000693279098236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475ba34462f44b91%3A0xa7e10d3c926a6926!2sZubarska%20ordinacija%20Mihajlovi%C4%87!5e0!3m2!1ssr!2srs!4v1574554314404!5m2!1ssr!2srs"
+			style="border:0"></iframe>
+	</div>
+</section>
+<!-- //contact -->
+
+
+
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container py-4">
+			<div class=" text-center">
+				<p>© 2019 Ordinacija Mihajlović. All Rights Reserved | Design by <a href="">Miki</a> </p>
+			</div>
+		</div>
+	</div>
+	<!-- //copyright -->
+
+<!-- move top -->
+<!-- <div class="move-top text-right">
+	<a href="#home" class="move-top">
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div> -->
+<!-- move top -->
+<script  src="{%static 'website/js/backtotop.js' %}"></script>
+
+	</body>
+	</html>

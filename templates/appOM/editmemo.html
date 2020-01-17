@@ -1,0 +1,20 @@
+{% extends 'appOM/base1.html' %}
+{% block title %}
+<title>Ordinacija Mihajlović-Uredimemo</title>
+{% endblock title %}
+
+{% block content %}
+<div style="padding-top: 130px; padding-bottom: 130px;">
+
+<h1 class="m-auto">Izmeni belešku</h1>
+<h2>{{note}}</h2>
+<form  action="{% url 'editMemo' memo.id %}" method="POST">
+    {% csrf_token %}
+    
+    {{ form }}  
+    <input type="submit" class="btn btn-banner my-sm-3 mb-3 my-3 " style="background-color:  rgb(64, 200, 200);" value="Izmeni">
+    </form>
+</div>
+
+
+{% endblock content %}

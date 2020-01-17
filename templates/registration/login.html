@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Ordinacija Mihajlović-LogIn</title>
+<style>
+
+  body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(https://i.loli.net/2019/11/17/GAYyzeKsiWjP5qO.jpg);
+  background-size: cover;
+  background-position: center;
+}
+  a {
+    color:crimson;
+    
+  }
+    </style>
+	<link href="{% static 'website/css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
+  <link href="{% static 'website/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+  <link href="{% static 'website/css/style.css'%}" rel='stylesheet' type='text/css' />
+  <link href="{% static 'website/css/font-awesome.min.css'%}" rel="stylesheet">
+  <style>
+
+      body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("/static/website/images/bcg.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+        </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="container py-sm-3" >
+    
+  <div  class="w-50 m-auto " style="min-width: 300px;">
+      <h1 class=" my-sm-3 mb-3 my-3 " style="text-align: center; padding-bottom: 5px;color:rgb(16, 110, 110); background-color: rgb(247, 242, 242)">Ordinacija Mihajlović</h1>
+  <form method="POST" action="{% url 'login' %}">
+   
+    {% csrf_token %}
+    <input type="input" class="form-control" name="username" id="inputEmail" placeholder="Korisničko ime" required >
+  </br>
+    <input type="password" class="form-control" name="password" id="inputPass" placeholder="Lozinka" required>
+    <button type="submit" class="btn btn-banner my-sm-3 mb-3 my-3 " style="background-color: rgb(16, 110, 110);">Uloguj se</button>
+    <a href="{%url 'index'%}" class="btn btn-banner my-sm-3 mb-3 my-3 "  >Nazad na početnu</a>
+  </form>
+
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

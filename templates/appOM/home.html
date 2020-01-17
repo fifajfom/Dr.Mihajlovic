@@ -1,0 +1,95 @@
+{% extends 'appOM/base1.html' %}
+{% block title %}
+<title>Ordinacija Mihajlović-AppHome</title>
+
+{% endblock title %}
+
+{% block content %}
+
+<div class='container' style="padding-top: 150px;">
+
+  <h1 class="m-auto">Zakazivanje termina</h1>
+  <a class="btn btn-banner" style="background-color:lightskyblue" href="{% url 'zakazivanje' %}">Zakaži</a>
+</br>
+</br>
+
+
+<span class="counter pull-right"></span>
+<table class="table  table-hover table-bordered results">
+  <thead>
+    <tr class="text-center">
+          <th>Ime i prezime</th>
+          <th>Datum</th>
+          <th>Početak tretmana</th>
+          <th>Kraj tretmana</th>
+          <th>Doktor</th>
+          <th>Opis</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody >
+    {% for item in query_results %}
+    
+    {% if item.zavrseno   %}
+    <tr class="text-center" style="background: lightcoral;"> 
+      <td ><strike>{{ item.ime_prezime }}</strike></td>
+      
+      <td ><strike>{{ item.date }}</strike></td>
+
+      <td ><strike>{{ item.time_start }}</strike></td>
+
+      <td ><strike>{{ item.time_end }}</strike></td>
+
+      <td ><strike>{{ item.text }}</strike></td>
+
+      <td ><strike>{{ item.dr }}</strike></td>
+      
+      <td ><a class="btn btn-banner" style="background-color: rgb(64, 200, 200);" href="{% url 'editZak' item.pk %}">Izmeni</a>  </td>
+      <td ><a class="btn btn-banner" style="background-color: rgb(212, 72, 72);" href="{% url 'deleteZak' item.pk %}" onclick="return confirm('Da li ste sigurni da želite da obrišete pacijenta ?')" id="del">Obriši</a>  </td>
+      <td ><a class="btn btn-banner" style="background-color: rgb(39, 177, 136);" href="{% url 'notcomplete' item.pk %}">Nije odrađeno</a>  </td>
+      <td ><a class="btn btn-banner" style="background-color: rgb(64, 240, 247);" href="{% url 'pacijent' item.ime_prezime_id %}">Otvori karton</a>  </td>
+      
+  </tr>
+   
+    {%else%}
+    <tr class="text-center boje"> 
+      <td >{{ item.ime_prezime }}</td>
+      
+      <td >{{ item.date|date:'d.m.Y' }}</td>
+
+      <td >{{ item.time_start|date:'H:i' }}</td>
+
+      <td >{{ item.time_end |date:'H:i'}}</td>
+
+      <td >{{ item.dr }}</td>
+
+      <td >{{ item.text }}</td>
+      
+      <td ><a class="btn btn-banner" style="background-color: rgb(64, 200, 200);" href="{% url 'editZak' item.pk %}">Izmeni</a>  </td>
+      <td ><a class="btn btn-banner" style="background-color: rgb(212, 72, 72);" href="{% url 'deleteZak' item.pk %}" onclick="return confirm('Da li ste sigurni da želite da obrišete zakazani termin ?')" id="del">Obriši</a>  </td>
+      <td ><a class="btn btn-banner" style="background-color: rgb(39, 177, 136);" href="{% url 'complete' item.pk %}">Odrađeno</a>  </td>
+      <td ><a class="btn btn-banner" style="background-color: rgb(64, 240, 247);" href="{% url 'pacijent' item.ime_prezime_id %}">Otvori karton</a>  </td>
+  </tr>
+   
+    {%endif%}
+    {% endfor %}
+</tbody>
+</table>
+  <!-- //Termini -->	
+  <div style="width:100%; height:150px;"></div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+</div>
+
+
+
+<!-- {% for arti in object_list %}
+<div class="article">
+  <h3><a href="{% url 'article_page' arti.pk %}">{{ arti.title }}</a></h3>
+  <p>{{ arti.text  }}</p>
+</div>
+{% endfor %} -->
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'appOM/base1.html' %}
+{% block title %}
+<title>Ordinacija Mihajlović-Uredipacijenta</title>
+{% endblock title %}
+
+{% block content %}
+<div style="padding-top: 130px;">
+
+<h1 class="m-auto">Izmeni Pacijenta</h1>
+<h2>{{note}}</h2>
+<form  action="{% url 'edit_pacijent' pacijent.id %}" method="POST">
+    {% csrf_token %}
+    
+    {{ form }} 
+    
+    
+    <input type="submit" class="btn btn-banner my-sm-3 mb-3 my-3 " style="background-color:  rgb(64, 200, 200);" value="Izmeni">
+    </form>
+</div>
+
+
+{% endblock content %}

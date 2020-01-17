@@ -1,0 +1,96 @@
+
+{% extends 'appOM/base1.html' %}
+{%load static %}
+{% block title %}
+<title>Ordinacija Mihajlović-Pacijent</title>
+
+{% endblock title %}
+
+{% block content %}
+
+<div class='container' style="padding-top: 150px;">
+  
+  {% for item in query_pac %}
+  <h1>
+    {{ item.ime }} {{ item.prezime }}
+  </h1>
+  <p>tel: {{item.telefon}} <br>email: {{item.email}}</p>
+  {%endfor%}
+
+   
+
+
+  <h3 class="m-auto">Beleške</h3>
+</br>
+<a class="btn btn-banner" style="background-color: rgb(67, 230, 230);margin-bottom: 10px;" href="{%url 'addMemo'%}">Dodaj novu belešku</a></h3>
+</br>
+
+
+<span class="counter pull-right"></span>
+<table class="table  table-hover table-bordered results">
+  <thead>
+    <tr class="text-center">
+          <th>Datum promene</th>
+          <th>Beleške</th>
+        </tr>
+      </thead>
+      <tbody >
+    {% for item in query_memo %}
+    
+
+    <tr class="text-center boje"> 
+        <td >{{ item.datee|date:'d.m.Y H:i' }}</td>
+        <td >{{ item.memo_pacijent }}</td>
+
+        
+        <td ><a class="btn btn-banner" style="background-color:  rgb(64, 200, 200);" href="{% url 'editMemo' item.pk %}">Izmeni</a>  </td>
+        <td ><a class="btn btn-banner" style="background-color:rgb(212, 72, 72);" href="{% url 'deleteMemo' item.pk %}" onclick="return confirm('Da li ste sigurni da želite da obrišete belešku ?')" id="del">Obriši</a>  </td>
+        
+    </tr>
+
+    {% endfor %}
+</tbody>
+</table>
+<img src="{% static 'appOM/slike/slika5.png' %}" alt="" srcset="">
+<h3 class="m-auto">Dokumenti i slike<br>
+  <a class="btn btn-banner" style="background-color: rgb(67, 230, 230);margin-top: 10px;" href="{%url 'upload'%}">Dodavanje novog dokumenta ili slike</a></h3>
+<br>
+<table class="table  table-hover table-bordered results">
+  <thead>
+    <tr class="text-center">
+          <th>opis</th>
+          <th>ime fajla</th>
+        </tr>
+      </thead>
+      <tbody >
+    {% for item in query_file %}
+    
+
+    <tr class="text-center boje"> 
+        <td >{{ item.opis }}</td>
+        <td >{{ item.fajl }}</td>
+
+        
+        <td ><a class="btn btn-banner" style="background-color:  rgb(64, 200, 200);" href="{{ item.fajl.url }}">otvori</a>  </td>
+        <td ><a class="btn btn-banner" style="background-color: rgb(212, 72, 72);" href="{% url 'deleteFile' item.pk %}" onclick="return confirm('Da li ste sigurni da želite da obrišete ovaj fajl?')" id="del">Obriši</a>  </td>
+    </tr>
+
+    {% endfor %}
+</tbody>
+</table>
+ 
+  <div style="width:100%; height:150px;"></div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+</div>
+
+
+
+<!-- {% for arti in object_list %}
+<div class="article">
+  <h3><a href="{% url 'article_page' arti.pk %}">{{ arti.title }}</a></h3>
+  <p>{{ arti.text  }}</p>
+</div>
+{% endfor %} -->
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'appOM/base.html' %}
+{% block title %}
+<title>Ordinacija Mihajlović-dodaj belesku</title>
+{% endblock title %}
+
+{% block content %}
+<div style="padding-top: 130px;">
+
+<h1 class="m-auto">Dodaj</h1>
+<h2>{{note}}</h2>
+<form  action="{% url 'addMemo' %}" method="POST">
+    {% csrf_token %}
+    
+    {{ pacijentform }} 
+    
+    
+    <input type="submit" class="btn btn-banner my-sm-3 mb-3 my-3 " style="background-color:  rgb(64, 200, 200);" value="Izmeni">
+    <input type="submit" class="btn btn-banner my-sm-3 mb-3 my-3 " onclick="window.history.back()" style="background-color: rgb(64, 200, 200);" value="Vrati se">
+    </form>
+</div>
+
+
+{% endblock content %}
